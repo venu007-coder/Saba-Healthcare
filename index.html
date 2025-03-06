@@ -14,15 +14,12 @@
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="script/script.js"></script>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow" style="z-index: 1000000">
         <div class="container">
-
-
-
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +31,7 @@
                 <div class="navbar-nav text-dark ms-auto" style="font-size: 11px;letter-spacing: 2px;;">
                     <a class="nav-item nav-link ms-3 me-3 text-dark" href="#">TEAM</a>
                     <a class="nav-item nav-link ms-3 me-3 text-dark" href="#">SERVICES</a>
-                    <a class="nav-item nav-link ms-3 me-3 text-dark" href="#">APPOINTMENTS </a>
+                    <a class="nav-item nav-link ms-3 me-3 text-dark" href="Appointments.html">APPOINTMENTS </a>
                     <a class="nav-item nav-link ms-3 me-3 custom_display" href="#">CONTACT US</a>
 
                 </div>
@@ -48,47 +45,48 @@
 
     </nav>
 
-    <section class="container container_custom_padding">
-        <div class="row">
-            <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                <div>
-                    <h1 class="font_custom1 mb-3" style="font-size: 50px;"><span><img src="assets/Logo_heart.svg"
-                                width="10%" class="mb-2"></span> Saba Healthcare for a Brighter Future</h1>
-
-                    <a style="letter-spacing: 0px;font-weight: normal;cursor: pointer;">Start A Checkup Now &nbsp;<i
-                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <hr class="mt-4">
-
-                    <div class="row mt-3 ">
-                        <div class="col-lg-3 d-flex align-items-center">
-                            <div class="mt-3 p-1 rounded-pill ps-2">
-                                <div class="progress-container border rounded-pill">
-                                    <svg class="progress-ring" width="120" height="120">
-                                        <circle class="progress-ring__circle" stroke="#62afc1" stroke-width="8"
-                                            fill="transparent" r="50" cx="60" cy="60" />
-                                    </svg>
-                                    <div class="progress-text">0%</div>
+    <section class="container_custom_padding landing_page_bg" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <div>
+                        <h1 class="font_custom1 mb-3" style="font-size: 50px;">Saba Healthcare for a Brighter Future</h1>
+    
+                        <a style="letter-spacing: 0px;font-weight: normal;cursor: pointer;">Start A Checkup Now &nbsp;<i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <hr class="mt-4">
+    
+                        <div class="row mt-3 ">
+                            <div class="col-lg-3 d-flex align-items-center">
+                                <div class="mt-3 p-1 rounded-pill ps-2">
+                                    <div class="progress-container border rounded-pill">
+                                        <svg class="progress-ring" width="120" height="120">
+                                            <circle class="progress-ring__circle" stroke="#62afc1" stroke-width="8"
+                                                fill="transparent" r="50" cx="60" cy="60" />
+                                        </svg>
+                                        <div class="progress-text">0%</div>
+                                    </div>
+    
+    
                                 </div>
-
-
                             </div>
-                        </div>
-                        <div class="col-lg-9 d-flex align-items-center">
-                            <div class="mt-2">
-
-                                <p class="fw-normal mb-1">100% Healing Success</p>
-                                <p>Trusted Healthcare for Every Woman’s Journey.
-                                    We providing personalized and high-quality medical care for women. Visit us at
-                                    Chapel House, Thremhall Park, Essex, CM22 7WE.</p>
+                            <div class="col-lg-9 d-flex align-items-center">
+                                <div class="mt-2">
+    
+                                    <p class="fw-normal mb-1">100% Healing Success</p>
+                                    <p>Trusted Healthcare for Every Woman’s Journey.
+                                        We providing personalized and high-quality medical care for women. Visit us at
+                                        Chapel House, Thremhall Park, Essex, CM22 7WE.</p>
+                                </div>
+    
                             </div>
-
                         </div>
                     </div>
+    
                 </div>
-
-            </div>
-            <div class="col-lg-6 mt-3 mt-lg-0">
-                <img src="assets/Landing_section_image.svg" width="100%">
+                <div class="col-lg-6 mt-3 mt-lg-0">
+                    <img src="assets/Landing_section_image.svg" width="100%">
+                </div>
             </div>
         </div>
     </section>
@@ -322,7 +320,7 @@
     <section class="container_custom_padding" style="background-color: #013955;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 d-flex align-items-center text-white">
+                <div class="col-lg-6 text-white">
                     <div>
                         <p class="letter-spacing-none mb-0 fs-5">Your time is valuable, and so is your health!</p>
                         <h1 class="font_custom1 mb-3" style="font-size: 50px;">APPOINTMENTS</h1>
@@ -350,6 +348,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!--#f1ece4-->
     <footer class="footer pt-5 pb-3 custom-font"
