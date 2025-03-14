@@ -1,6 +1,6 @@
 @media only screen and (max-width: 991px) {
     .custom_display_mobile{
-        display: none;
+        display: none !important;
     }
 
     .bounce_animation{
@@ -24,7 +24,7 @@
 @media only screen and (min-width: 992px) {
 
     .custom_display{
-        display: none;
+        display: none !important;
     }
 
  
@@ -55,21 +55,52 @@
 }
 
 
+.navbar.scrolled {
+    background-color: #000000 !important;
+    box-shadow: 3 2px 28px 0 rgba(255, 255, 255, 0.09) !important;
+    animation: 800ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: rgb(255 255 255) !important;
+}
+
+@keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0,-100%,0);
+    }
+}
+
+
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
 
 /* .font-style-none{
     font-style: none;
 } */
 
 body{
-    font-weight:350;
+    font-weight:350 !important;
     font-style: normal;
     font-size: 16px;
     /* letter-spacing: 2px; */
-    line-height: 1.7rem;
+    line-height: 1.7rem !important;
     /* word-wrap: break-word; */
     /* text-align: justify; */
 }
 
+.navbar-list{
+    font-size: 11px;letter-spacing: 2px;margin-left: auto !important;
+}
+
+.navbar-list a{
+    margin: 0px 10px;
+}
 .progress-container {
     position: relative;
     width: 120px;
@@ -150,15 +181,29 @@ body{
   }
 
   .hover_bgeffort:hover {
-    background: linear-gradient(to right, #ffffff 50%, #c6dbff 50%); /* Blue to White */
+    background: linear-gradient(to right, #ffffff 10%, #c6dbff 100%); /* Blue to White */
     cursor: pointer;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 6px 0px;
 }
 
 
+
   .hover_bgeffort {
     transition: 1s;
   }
+
+  .doctor-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.active-doctor div img {
+    background: linear-gradient(to right, #ffffff 0%, #c6dbff 0%); /* Blue to White */
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 6px 0px;
+    border-radius: 8px;
+   
+}
 
   /* For Webkit Browsers (Chrome, Safari, Edge) */
   div[style*="overflow-y: auto"]::-webkit-scrollbar {
@@ -226,3 +271,73 @@ body{
 .fc .fc-daygrid-day.fc-day-today {
     background-color: rgba(139, 212, 255, 0.15);
 }
+
+
+/* Slider */
+  .slider_section .carousel-indicators {
+    position: unset;
+    margin: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .slider_section .carousel-indicators li {
+    background-color: #1b1b1b;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    opacity: 1;
+    margin: 10px 5px;
+    list-style: none;
+
+  }
+  
+  .slider_section .carousel-indicators li.active {
+    width: 20px;
+    height: 20px;
+    background-color: #2f8daa;
+  }
+  
+  .fs-custom{
+    font-size: 40px;
+  }
+
+
+  .grident_color_custom{
+    background: linear-gradient(to bottom, #ffffff 20%, #eef1f6 60%)
+  }
+
+  .fc .fc-view-harness {
+    height: 260px !important;
+  }
+
+  .fc .fc-scrollgrid-liquid thead {
+    background-color: #eef1f6;
+  }
+
+  
+
+  .button_popup{
+    background-color: #ffffff;
+    border: 1px solid #eef1f6;
+    color: #525252;
+  }
+
+  .button_popup:hover{
+    background-color: #eef1f6;
+  }
+
+  .button_danger_custom{
+    background-color: #ffd1d1;
+    border: 1px solid #ff9393;
+    color: #525252;
+  }
+
+  .custom-input {
+    background-color: #e4edfd;
+    border: 1px solid #eef1f6;
+  }
