@@ -36,10 +36,18 @@
     .landing_page_bg{
         background-image: url(../assets/WhiteWave_mobile.gif) !important;background-size: 100%;
     }
+
+    .service_image{
+        background-image: url(../assets/service_bg_mobile.svg) !important;background-size: cover;background-attachment: fixed;
+     }
 }
 
 .landing_page_bg{
     background-image: url(../assets/White_wave_bg.gif);background-size: 100%;
+}
+
+.service_image{
+   background-image: url(../assets/service_bg.svg);background-size: cover;background-attachment: fixed;
 }
 
 
