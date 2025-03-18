@@ -349,3 +349,13 @@ body{
     background-color: #e4edfd;
     border: 1px solid #eef1f6;
   }
+
+
+  .rotate-icon {
+    transform: rotate(-30deg);
+    display: inline-block; /* Ensures proper transformation */
+  }
+
+  .custom-input{
+    height: 28px !important;
+  }
