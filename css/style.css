@@ -191,7 +191,8 @@ body{
   .hover_bgeffort:hover {
     background: linear-gradient(to right, #ffffff 10%, #c6dbff 100%); /* Blue to White */
     cursor: pointer;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 6px 0px;
+    box-shadow: rgba(192, 255, 192, 0.692) 0px 4px 6px 2px;
+    transform: translate(0px,10px);
 }
 
 
