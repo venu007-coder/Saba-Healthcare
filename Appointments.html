@@ -25,38 +25,38 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.min.js"></script>
 
+    
+
 </head>
 
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light text-light sticky-top"
-        style="z-index: 1000000;background-color: #232323;">
+       <nav class="navbar navbar-expand-lg navbar-light text-light sticky-top pb-0 pt-0" style="z-index: 1000000;background-color: #000000;">
         <div class="container">
-            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon text-light text-light"></span> -->
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
             <a class="navbar-brand mt-0 mb-0 pb-0 pt-0" href="index.html">
-                <img src="assets/Logo-2.png" width="45%">
+                <img src="assets/Logo-new.svg" width="70%">
             </a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav  text-light  navbar-list">
                     <a class="nav-item nav-link ms-4 me-4  text-light " href="AboutUs.html">ABOUT US</a>
                     <a class="nav-item nav-link ms-4 me-4  text-light " href="Service.html">SERVICES</a>
                     <a class="nav-item nav-link ms-4 me-4  text-light " href="Appointments.html">APPOINTMENTS</a>
-                    <a class="nav-item nav-link ms-4 me-4  text-light  custom_display" href="ContactUs.html">CONTACT
-                        US</a>
+                    <a class="nav-item nav-link ms-4 me-4  text-light  custom_display" href="ContactUs.html">CONTACT US</a>
                 </div>
             </div>
 
             <div class="">
-                <button class="btn btn-dark btn-sm rounded-pill custom_display_mobile text-dark"
-                    onclick="window.location.href='ContactUs.html'"
-                    style="font-size: 11px; background: linear-gradient(45deg, #C79C42, #E5C47E, #B8860B); border: 1px solid #A67C00; color: white;font-weight: 500;">
-                    CONTACT US
-                </button>
+                <button class="btn btn-dark btn-sm rounded-pill custom_display_mobile text-dark" onclick="window.location.href='ContactUs.html'"
+                style="font-size: 11px; background: linear-gradient(45deg, #C79C42, #E5C47E, #B8860B); border: 1px solid #A67C00; color: white;font-weight: 500;">
+                CONTACT US
+            </button>
+            
+            
             </div>
         </div>
 
@@ -381,12 +381,74 @@
             var doctorNameInput = document.getElementById("doctorName");
             var doctorNameDiv = document.getElementById("doctorNameDiv"); // Get the div
     
-            console.log(elements);
-    
-            docname = elements;  // Assign the value to global variable
+            docname = elements; 
             doctorNameInput.value = docname;  
             doctorNameDiv.textContent = docname;  
         }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("getappointmentform");
+
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Stops default form submission
+
+            const date = document.getElementById('appointmentDate').value.trim();
+                        const time = document.getElementById('time').value.trim();
+                        const name = document.getElementById('name').value.trim();
+                        const number = document.getElementById('number').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const docname = document.getElementById('doctorName').value.trim();
+
+                        const phonePattern = /^[0-9]{10}$/;
+                        const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+                     
+                var formData = {
+                    name: name,
+                    number: number,
+                    time: time,                  
+                    date: date,
+                    email: email,
+                    docname: docname
+                };
+
+                console.log(formData);
+
+                var apiUrl = 'http://localhost:86/StoryboardAPI/api/CustomerRegister/SabaAppointmentMailtrigger';
+
+                const options = {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            };
+
+            fetch(apiUrl, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }, method: "POST",
+                body: JSON.stringify(formData)
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                toastr.success('Thank you for contacting us. Get in touch with you soon.', 'Success', {
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000
+                });
+                document.getElementById('feedbackForm').reset();
+            }).catch(err => {
+                console.log(err)
+                toastr.success('Mail not send.', 'Danger', {
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000
+                });
+                document.getElementById('feedbackForm').reset();
+            });
+
+        });
+    } 
+});
+
     </script>
     
 
@@ -463,86 +525,82 @@
             </div>
         </div>
     </footer>
-
-
-</body>
-
-<!-- Bootstrap Modal -->
-<div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered modal-lg">
-        <div class="modal-content border-0">
-
-            <div class="modal-body pt-2 pb-2" style="border-radius:16px">
-
-                <div class="row">
-                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                        
-                        <img src="assets/Treatment.svg" width="100%">
-                    </div>
-                    <div class="col-lg-6 p-2 border rounded" style="background-color: #bdd5ff;">
-                        <h3 class="font_custom1">Schedule a meeting</h3>
-                        <hr class="mt-1 mb-3">
-                        <span id="doctorNameDiv" class="p-1 rounded shadow-sm"
-                            style="background-color: #eaf0ff;color: #7e7ac8;font-size: 15px;font-weight: 500;">Dr. Joe Shmoe</span>
-
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-lg">
+            <div class="modal-content border-0">
+    
+                <div class="modal-body pt-2 pb-2" style="border-radius:16px">
+    
+                    <div class="row">
+                        <div class="col-lg-6 d-flex justify-content-center align-items-center">
                             
+                            <img src="assets/Treatment.svg" width="100%">
+                        </div>
+                        <div class="col-lg-6 p-2 border rounded" style="background-color: #bdd5ff;">
+                            <h3 class="font_custom1">Schedule a meeting</h3>
+                            <hr class="mt-1 mb-3">
+            
+                            <form class="mt-3" id="getappointmentform">
+                                <div class="row g-2 mt-2 border p-2 rounded bg-white shadow-sm">
 
-                            
-                        <form class="mt-3">
-
-
-                            <div class="row g-2 mt-2 border p-2 rounded bg-white shadow-sm">
-                                <div class="col-lg-6 mt-0">
-                                    <span>Date</span>
-                                    <input type="text" class="form-control custom-input mt-1"
-                                        id="appointmentDate" readonly>
+                                     <!-- Selected Doctor -->
+                                <div class="col-lg-12 mt-0" >
+                                    <span>Doctor Name</span>
+                                    <input type="text" class="form-control custom-input mt-1" id="doctorName" readonly value="Dr. Jeo Shmoe">
+    
                                 </div>
-                                <div class="col-lg-6 mt-0">
-                                    <span>Time</span>
-                                    <input type="time" class="form-control custom-input mt-1">
+                                    <div class="col-lg-6 mt-0">
+                                        <span>Date</span>
+                                        <input type="text" class="form-control custom-input mt-1"
+                                            id="appointmentDate" readonly>
+                                    </div>
+                                    <div class="col-lg-6 mt-0">
+                                        <span>Time</span>
+                                        <input type="time" id="time" class="form-control custom-input mt-1">
+                                    </div>
+    
+    
                                 </div>
-
-
-                            </div>
-
-                            <div class="row g-2 mt-2 border p-2 pb-3 bg-white rounded  shadow-sm">
-                                <h6 class="mt-0 mb-0" id="appointmentModalLabel">User Details</h6>
-                                <hr class="mb-0">
-                                <div class="col-lg-6">
-                                    <span>Name</span>
-                                    <input type="text" class="form-control custom-input mt-1">
+    
+                                <div class="row g-2 mt-2 border p-2 pb-3 bg-white rounded  shadow-sm">
+                                    <h6 class="mt-0 mb-0" id="appointmentModalLabel">User Details</h6>
+                                    <hr class="mb-0">
+                                    <div class="col-lg-6">
+                                        <span>Name</span>
+                                        <input type="text" id="name" class="form-control custom-input mt-1">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <span>Number</span>
+                                        <input type="text" id="number" class="form-control custom-input mt-1">
+                                    </div>
+    
+                                    <div class="col-lg-12">
+                                        <span>Email</span>
+                                        <input type="text" id="email" class="form-control custom-input mt-1">
+                                    </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <span>Number</span>
-                                    <input type="text" class="form-control custom-input mt-1">
+    
+                               
+                                <div class="text-end">
+                                    <button class="btn button_danger_custom mt-3 btn-sm shadow-sm"
+                                        data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+    
+                                    <button type="submit" class="btn button_popup mt-3 btn-sm shadow-sm">Get
+                                        Appointment</button>
                                 </div>
-
-                                <div class="col-lg-12">
-                                    <span>Email</span>
-                                    <input type="text" class="form-control custom-input mt-1">
-                                </div>
-                            </div>
-
-                            <!-- Selected Doctor -->
-                            <div class="mb-3 " style="display: none;">
-                                <label for="doctorName" class="form-label">Doctor Name</label>
-                                <input type="text" class="form-control" id="doctorName" readonly>
-
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn button_danger_custom mt-3 btn-sm shadow-sm"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                <button type="submit" class="btn button_popup mt-3 btn-sm shadow-sm">Get
-                                    Appointment</button>
-                            </div>
-
-                        </form>
+    
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+</body>
+
+<!-- Bootstrap Modal -->
+
 
 <!-- Calendar -->
 
